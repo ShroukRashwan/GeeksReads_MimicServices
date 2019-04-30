@@ -1,27 +1,31 @@
 <?php
 
-$string = $_REQUEST["Json"];
-$json_in = json_decode($string, true);
+// To Read Data From Post Request Body like Backend
+$json_in =  json_decode(file_get_contents('php://input'), true);
+
 $json_out = new \stdClass();
 
-if ($json_in['UserID'] == "iiiidddd1142019" && $json_in['UserToken'] == "xYzAbCdToKeN")
+if ($json_in['token'] == "xYzAbCdToKeN")
 {
-    if ($json_in['ShelfName'] == "Read")
-    {
-        $json_out->ShelfCount = "15";
-    }
-    else if ($json_in['ShelfName'] == "WantToRead")
-    {
-        $json_out->ShelfCount = "30";
-    }
-    else if ($json_in['ShelfName'] == "CurrentlyReading")
-    {
-        $json_out->ShelfCount = "49";
-    }
+	header("HTTP/1.1 200");
+    $json_out->NoOfRead = "5";
+    $json_out->NoOfWantToRead = "10";
+    $json_out->NoOfReading = "15";
+}
+else if ($json_in['token'] == "xYzAbCdToKeN_Wrong")
+{
+	header("HTTP/1.1 400");
+    $json_out->ReturnMsg = "Invalid token.";
+}
+else if ($json_in['token'] == "xYzAbCdToKeN_NotExist")
+{
+	header("HTTP/1.1 400");
+    $json_out->ReturnMsg = "User Doesn't Exist";
 }
 else
 {
-    $json_out->ShelfCount = "0";
+	header("HTTP/1.1 400");
+    $json_out->ReturnMsg = "An Error Occurred";
 }
 
 $json_out = json_encode($json_out);
