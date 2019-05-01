@@ -11,7 +11,7 @@ if ($json_in['token'] == "xYzAbCdToKeN" && $json_in['OldUserPassword'] == "b98ac
     $json_out->ReturnMsg = "Update Successful";
 }
 // Mah1142020 : (MD5) 1b1733aa703dc489c0ed108f76578c0d
-else if ($json_in['token'] == "xYzAbCdToKeN" && $json_in['OldUserPassword'] == "1b1733aa703dc489c0ed108f76578c0d")
+else if ($json_in['token'] == "xYzAbCdToKeN" && $json_in['OldUserPassword'] != "b98acc94be7ec5125c48158deeb8a59b")
 {
 	header("HTTP/1.1 400");
     $json_out->ReturnMsg = "Invalid Old password.";
