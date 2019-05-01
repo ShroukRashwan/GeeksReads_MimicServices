@@ -5,13 +5,13 @@ $json_in =  json_decode(file_get_contents('php://input'), true);
 
 $json_out = new \stdClass();
 // Mahmoud123456789 : (MD5) b98acc94be7ec5125c48158deeb8a59b
-if ($json_in['token'] == "xYzAbCdToKeN" && $json_in['OldUserPassword'] == "Mahmoud123456789")
+if ($json_in['token'] == "xYzAbCdToKeN" && $json_in['OldUserPassword'] == "b98acc94be7ec5125c48158deeb8a59b")
 {
 	header("HTTP/1.1 200");
     $json_out->ReturnMsg = "Update Successful";
 }
 // Mah1142020 : (MD5) 1b1733aa703dc489c0ed108f76578c0d
-else if ($json_in['token'] == "xYzAbCdToKeN" && $json_in['OldUserPassword'] == "Mah1142020")
+else if ($json_in['token'] == "xYzAbCdToKeN" && $json_in['OldUserPassword'] == "1b1733aa703dc489c0ed108f76578c0d")
 {
 	header("HTTP/1.1 400");
     $json_out->ReturnMsg = "Invalid Old password.";
