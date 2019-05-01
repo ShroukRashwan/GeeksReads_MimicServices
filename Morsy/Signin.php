@@ -12,13 +12,13 @@ if ($json_in['UserEmail'] == "mahmoud_1@live.com")
     $json_out->ReturnMsg = "Your account has not been verified.";
 }
 //Mahmoud1234567891 = (MD5) 683baf9b925204422e6fd5bcb1506ff
-else if ($json_in['UserEmail'] == "mahmoud_morsy@live.com" && $json_in['UserPassword'] != "Mahmoud123456789")
+else if ($json_in['UserEmail'] == "mahmoud_morsy@live.com" && $json_in['UserPassword'] != "683baf9b925204422e6fd5bcb1506ff")
 {
 	header("HTTP/1.1 400");
     $json_out->ReturnMsg = "Invalid email or password.";
 }
 //Mahmoud123456789 = (MD5) b98acc94be7ec5125c48158deeb8a59b
-else if ($json_in['UserEmail'] == "mahmoud_morsy@live.com" && $json_in['UserPassword'] == "Mahmoud123456789")
+else if ($json_in['UserEmail'] == "mahmoud_morsy@live.com" && $json_in['UserPassword'] == "b98acc94be7ec5125c48158deeb8a59b")
 {
 	header("HTTP/1.1 200");
     $json_out->ReturnMsg = "Login Successful";
